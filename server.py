@@ -3,6 +3,11 @@ import answerer
 
 app = Flask(__name__)
 
+answerer = answerer.Answerer()
+print("Building Model!")
+answerer.build_model()
+print("Initializing Done!")
+
 
 @app.route('/answer', methods=['GET'])
 def results():
@@ -16,8 +21,4 @@ def results():
 
 
 if __name__ == "__main__":
-    answerer = answerer.Answerer()
-    print("Building Model!")
-    answerer.build_model()
-    print("Initializing Done!")
     app.run(debug=False)
